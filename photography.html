@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landscape Photography Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <style>
+
+        @import url('https://fonts.googleapis.com/css2?family=Baskervville+SC&family=Mulish:ital,wght@0,200..1000;1,200..1000&family=Sevillana&display=swap');
+
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: #333;
+            color: white;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        .logo img {
+            height: 50px;
+            margin-right: 10px;
+        }
+        nav {
+            flex-grow: 1;
+            text-align: center;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+        }
+        .social-media {
+            display: flex;
+            align-items: center;
+        }
+        .social-media a {
+            margin-left: 20px;
+            color: rgb(255, 1, 1);
+            text-decoration: none;
+            font-size: 20px;
+        }
+        .main-section {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+        }
+        .introduction {
+            flex: 1;
+            font-style:inherit;
+            font: bold;
+            margin-left: 60px;
+
+        }
+        .introduction h1 {
+            color: #000000; 
+            font-size:7dvh
+        }
+        .introduction h1 .Landscape {
+            color: rgb(9, 99, 163);
+        }
+        p {
+            font-size: 25px;
+        }
+
+        .photographer-image {
+            flex: 1;
+        }
+        .photographer-image img {
+            width: 100%;
+            max-width: 55%;
+            border-radius: 5px;
+            margin-left: 200px;
+        }
+
+        .about-section {
+            display: flex;
+            align-items: center;
+            padding: 40px 20px;
+            background-color: #fff;
+            max-width: 100%;
+            margin: 0 auto;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+        .about-image {
+            flex: 1;
+            padding: 20px;
+        }
+        .about-image img {
+            width: 100%;
+            max-width: 500px;
+            border-radius: 10px;
+        }
+        .about-text {
+            flex: 2;
+            padding: 20px;
+        }
+        .about-text h2 {
+            margin-top: 0;
+            font-size: 28px;
+            color: #333;
+        }
+        .about-text p {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #232323;
+        }
+        .portfolio-section {
+            background-color: white;
+            padding: 40px 20px;
+        }
+        .portfolio-section h2 {
+            font-size: 42px;
+            margin-top: 20px;
+            color: #000000;
+            margin-left: 50px;
+
+        }
+
+        .portfolio-slider {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        .slide {
+            position: absolute;
+            transition: opacity 1s ease-in-out;
+            opacity: 0;
+        }
+        .slide.active {
+            opacity: 1;
+        }
+        .portfolio-slider img {
+            width: 100%;
+            max-width: 600px;
+            border: 5px solid black;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .portfolio-text {
+            text-align: center;
+            margin-top: 10px;
+            color: black;
+            background-color: rgba(255, 255, 255, 0.7);
+            padding: 10px;
+            border-radius: 5px;
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90%;
+            max-width: 600px;
+        }
+
+       
+        .work-section {
+            padding: 40px;
+            background-color: white;
+            margin-top: 80px;
+        }
+        .work-section h2 {
+            font-size: 36px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .work-gallery {
+            display: flex;
+            flex-direction: row;
+            gap: 20px;
+            align-items: center;
+        }
+        .work-gallery img {
+            width: 100%;
+            max-width: 320px; /* Adjust the max-width as needed */
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-section {
+            display: flex;
+            height: 100vh;
+            padding: 40px 20px;
+            background-color: white;
+        }
+        .contact-form {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding-right: 20px;
+        }
+        .contact-form h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            font-family: 'Georgia', serif;
+        }
+        .contact-form label {
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        .contact-form button {
+            padding: 10px 20px;
+            font-size: 18px;
+            color: white;
+            background-color: #333;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .contact-form button:hover {
+            background-color: #555;
+        }
+        .contact-image {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .contact-image img {
+            width: 100%;
+            max-width: 500px;
+            border-radius: 10px;
+        }
+
+        footer {
+            background-color: #000;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            position: relative;
+            width: 100%;
+            bottom: 0;
+        }
+
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="logo">
+        <img src="C:\Users\HP\Desktop\website desgin\Default_generate_image_logo_for_landscape_photographywrite_any_0_64948287-4bba-44c4-8230-7a61ebe73f96_0.png" alt="Logo">
+        <div>Aditya</div>
+    </div>
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#works">Works</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+    <div class="social-media">
+        <a href="#facebook"><i  class="fab fa-facebook-f"></i></a>
+        <a href="#twitter"><i class="fab fa-twitter"></i></a>
+        <a href="https://www.instagram.com/?utm_source=pwa_homescreen&__pwa=1"><i class="fab fa-instagram"></i></a>
+    </div>
+</header>
+
+<div class="main-section">
+    <div class="introduction">
+        <h1>Welcome to My <span class="Landscape">Landscape Photography</span></h1>
+        <p>Hello! I'm Aditya , a passionate landscape photographer.<br>My work captures the beauty and essence of nature's landscapes.<br> Explore my portfolio to see my latest works and projects. <br>I hope my photographs inspire you to see the world through a different lens.</p>
+    </div>
+    <div class="photographer-image">
+        <img src="C:\Users\HP\Desktop\website desgin\portrait-7942151_1280.jpg" alt="Photographer">
+    </div>
+</div>
+
+<div class="about-section">
+    <div class="about-image">
+        <img src="C:\Users\HP\Desktop\website desgin\man-6817323_1280.jpg" alt="Photographer at Work">
+    </div>
+    <div class="about-text">
+        <h2>About Me</h2>
+        <p>Hello! I'm Aditya, a dedicated landscape photographer with over 6 years of experience capturing the breathtaking beauty of nature. My journey into photography began at a young age, inspired by the stunning vistas of my hometown. Over the years, I've honed my skills and developed a deep appreciation for the intricate details and vast expanses that make up our world's landscapes.</p>
+        <p>My work is driven by a passion for the outdoors and a desire to share the awe-inspiring scenes I encounter with others. Each photograph tells a story, not just of a place, but of a moment in time, capturing the light, colors, and emotions that make it unique.</p>
+        <p>Whether I'm trekking through mountains, wandering through forests, or standing at the edge of the sea, my camera is always by my side, ready to freeze a moment of beauty that can be enjoyed for years to come. Thank you for visiting my portfolio. I hope my photographs inspire you to see the world from a new perspective.</p>
+    </div>
+</div>
+
+
+<div class="portfolio-section" id="portfolio">
+    <h2>Portfolio</h2>
+
+<div class="portfolio-section">
+    <div class="portfolio-slider">
+        <div class="slide active">
+            <img src="C:\Users\HP\Desktop\website desgin\storm-8244663_1280.jpg" alt="Portfolio Image 1" class="active">
+            <div class="portfolio-text">Portfolio Image 1</div>
+        </div>
+        <div class="slide">
+            <img src="C:\Users\HP\Desktop\website desgin\mountains-8296344_1280.jpg" alt="Portfolio Image 2">
+            <div class="portfolio-text">Portfolio Image 2</div>
+        </div>
+        <div class="slide">
+            <img src="C:\Users\HP\Desktop\website desgin\landscape-8068793_1280.jpg" alt="Portfolio Image 3">
+            <div class="portfolio-text">Portfolio Image 3</div>
+        </div>
+        <div class="slide">
+            <img src="C:\Users\HP\Desktop\website desgin\landscape-8068793_1280.jpg"  alt="Portfolio Image 4">
+            <div class="portfolio-text">Portfolio Image 3</div>
+        </div>
+        <div class="slide">
+            <img src="C:\Users\HP\Desktop\website desgin\photo-7576548_1280.jpg" alt="Portfolio Image 5">
+            <div class="portfolio-text">Portfolio Image 3</div>
+        </div>
+        <!-- Add more slides as needed -->
+    </div>
+</div>
+
+<script>
+    const slides = document.querySelectorAll('.portfolio-slider .slide');
+    let currentIndex = 0;
+
+    function showNextSlide() {
+        slides[currentIndex].classList.remove('active');
+        currentIndex = (currentIndex + 1) % slides.length;
+        slides[currentIndex].classList.add('active');
+    }
+
+    setInterval(showNextSlide, 3000); // Change image every 3 seconds
+</script><br><br>
+
+
+
+<div class="work-section">
+    <h2>My Works</h2>
+    <div class="work-gallery">
+        <img src="C:\Users\HP\Desktop\website desgin\landscape-4593909_1280.jpg" alt="Work 1">
+        <img src="C:\Users\HP\Desktop\website desgin\europe-7128531_1280.jpg" alt="Work 2">
+        <img src="C:\Users\HP\Desktop\website desgin\mountains-8296344_1280.jpg" alt="Work 3">
+        <img src="C:\Users\HP\Desktop\website desgin\mountains-4850293_1280.jpg" alt="Work 4">
+    </div>
+</div>
+
+<div class="contact-section">
+    <div class="contact-form">
+        <h2>Contact Me</h2>
+        <form>
+            <label for="name">Your Name</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Your Email ID</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="message">Your Message</label>
+            <textarea id="message" name="message" rows="6" required></textarea>
+
+            <button type="submit">Send</button>
+        </form>
+    </div>
+    <div class="contact-image">
+        <img src="C:\Users\HP\Desktop\website desgin\photographer-1867417_1280.jpg" alt="Photographer">
+    </div>
+</div>
+
+
+<footer>
+    &copy; 2024 Photographer's Name. All rights reserved.
+</footer>
+
+
+
+</body>
+</html>
+
+
+
+
+
+
+
+
